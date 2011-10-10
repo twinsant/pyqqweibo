@@ -898,6 +898,9 @@ FAQ
 由于 Python 2.5 不支持 except ExceptionName as e 的语法.
 所以本 SDK 不支持 Python 2.5-. 如有需要, 可以自行修改.
 一般来说处理下 __future__ 和 except ... as ... 语法就可以.
+还有b'this is a string'这样的bytes对象.
+\*args未放置在最后.
+修改ouath.py恢复支持Python2.5
 
 -------------
 错误代码查询

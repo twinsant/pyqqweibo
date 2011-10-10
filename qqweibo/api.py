@@ -235,7 +235,7 @@ class API(object):
             payload_type = 'retid',
             require_auth = True,
             allowed_param = allowed_param
-            )(self, *args, post_data=post_data, headers=headers)
+            )(self, post_data=post_data, headers=headers, *args)
 
     """ 7.t/re_count 转播数或点评数 """
     _t_re_count = bind_api(
@@ -347,7 +347,7 @@ class API(object):
             method = 'POST',
             require_auth = True,
             allowed_param = allowed_param
-            )(self, *args, post_data=post_data, headers=headers)
+            )(self, post_data=post_data, headers=headers, *args)
 
     """ 4.user/update_edu 更新用户教育信息 """
     # TODO: 吐槽此条API
@@ -898,7 +898,7 @@ class API(object):
         # fix py3k
         for i in range(len(body)):
             body[i] = convert_to_utf8_bytes(body[i])
-        body = b'\r\n'.join(body)
+        body = '\r\n'.join(body)
         # build headers
         headers = {
             'Content-Type': 'multipart/form-data; boundary=%s' % BOUNDARY,

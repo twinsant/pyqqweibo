@@ -143,7 +143,7 @@ def bind_api(**config):
                     else:
                         req = Request(url_full)
                     resp = urlopen(req)
-                except Exception as e:
+                except Exception , e:
                     raise QWeiboError("Failed to request %s headers=%s %s" % \
                                       (url, self.headers, e))
 
@@ -185,7 +185,7 @@ def bind_api(**config):
                     msg = json.get('msg', '')
                     # only in some post request
                     errcode = json.get('errcode', 0)
-                except ValueError as e:
+                except ValueError , e:
                     retcode = -1
                     msg = "Bad json format (%s)" % e
                 finally:

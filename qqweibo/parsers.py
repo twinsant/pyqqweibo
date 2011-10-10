@@ -64,7 +64,7 @@ class JSONParser(Parser):
     def parse(self, method, payload):
         try:
             json = self.json_lib.loads(payload, encoding='utf-8')
-        except Exception as e:
+        except Exception , e:
             print ("Failed to parse JSON payload:" + repr(payload))
             raise QWeiboError('Failed to parse JSON payload: %s' % e)
 

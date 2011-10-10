@@ -82,7 +82,7 @@ class OAuthHandler(AuthHandler):
             request.sign_request(self._sigmethod, self._consumer, None)
             resp = urlopen(Request(request.to_url()))  # must
             return oauth.OAuthToken.from_string(resp.read().decode('ascii'))
-        except RuntimeError as e:
+        except RuntimeError , e:
             raise QWeiboError(e)
 
     def set_request_token(self, key, secret):
@@ -107,7 +107,7 @@ class OAuthHandler(AuthHandler):
             )
 
             return request.to_url()
-        except RuntimeError as e:
+        except RuntimeError , e:
             raise QWeiboError(e)
 
     def get_access_token(self, verifier=None):
@@ -134,7 +134,7 @@ class OAuthHandler(AuthHandler):
             #print ('Access token secret: ' + str(self.access_token.secret))
 
             return self.access_token
-        except Exception as e:
+        except Exception , e:
             raise QWeiboError(e)
 
     def setToken(self, token, tokenSecret):
